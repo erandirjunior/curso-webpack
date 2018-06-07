@@ -1,9 +1,14 @@
 import { abc } from './myfile.js';
 import jslogo from './javascript.png';
+import $ from 'jquery';
 
 const imgElement = document.querySelector('#my-image');
 
 imgElement.setAttribute('src', jslogo);
+
+$(imgElement).on('click', function() {
+	$(this).hide();
+});
 
 console.log('mensagem do index');
 
