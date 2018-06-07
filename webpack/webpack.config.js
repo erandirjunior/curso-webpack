@@ -12,6 +12,7 @@ module.exports = {
 		app: `${PATHS.src}/index2.js`
 	},
 	output: {
+		//filename: '[name].[chunkhash:5].js',
 		filename: '[name].js',
 		path: PATHS.build
 	},
