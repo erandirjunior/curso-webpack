@@ -1,14 +1,13 @@
 import { abc } from './myfile.js';
 import jslogo from './javascript.png';
-import $ from 'jquery';
+import css from './style.css';
+
+console.log(css);
 
 const imgElement = document.querySelector('#my-image');
 
 imgElement.setAttribute('src', jslogo);
-
-$(imgElement).on('click', function() {
-	$(this).hide();
-});
+imgElement.classList.add(css['img-border']);
 
 console.log('mensagem do index');
 
