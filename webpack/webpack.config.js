@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: './src/index.js',
@@ -10,7 +11,14 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(png|jpg|svg)$/,
-				use: {loader: 'url-loader'}
+				use: {
+					loader: 'url-loader',
+					options: {
+				        /*minimize: true,
+				        removeComments: false,
+				        collapseWhitespace: false*/
+				    }
+				}
 			}
 		]
 	}
