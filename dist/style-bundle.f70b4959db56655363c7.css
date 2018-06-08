@@ -1,0 +1,12 @@
+body {
+  background-color: orange;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.img-border {
+  border: 5px solid green;
+}

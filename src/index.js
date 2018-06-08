@@ -8,7 +8,7 @@ const imgElement = document.querySelector('#my-image');
 const numberElement = document.querySelector('#my-number');
 
 imgElement.setAttribute('src', jslogo);
-imgElement.classList.add(css['img-border']);
+//imgElement.classList.add(css['img-border']);
 
 numberElement.addEventListener('click', function() {
 	console.log(this.value);
