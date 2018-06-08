@@ -1,4 +1,4 @@
-//import { abc } from './myfile.js';
+import { abc } from './myfile.js';
 import jslogo from './javascript.png';
 import css from './style.css';
 
@@ -6,6 +6,14 @@ console.log(css);
 
 const imgElement = document.querySelector('#my-image');
 const numberElement = document.querySelector('#my-number');
+
+class MyClass {
+	constructor() {
+		this.x = 5;
+	}
+}
+
+const x = new MyClass();
 
 imgElement.setAttribute('src', jslogo);
 //imgElement.classList.add(css['img-border']);
@@ -21,7 +29,7 @@ numberElement.addEventListener('click', async function() {
 	});*/
 
 	// async/await
-	const { abc } = await import('./myfile.js');
+	//const { abc } = await import('./myfile.js');
 	abc();
 });
 
