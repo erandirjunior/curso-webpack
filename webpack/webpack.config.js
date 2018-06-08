@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
 	src: path.join(__dirname, '../src'),
@@ -12,8 +13,8 @@ module.exports = {
 		app: `${PATHS.src}/index2.js`
 	},
 	output: {
-		//filename: '[name].[chunkhash:5].js',
-		filename: '[name].js',
+		filename: '[name].[chunkhash:5].js',
+		//filename: '[name].js',
 		path: PATHS.build
 	},
 	module: {
@@ -44,5 +45,11 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: 'TW WebPack',
+			template: `${PATHS.src}/index.html`
+		})
+	]
 }
