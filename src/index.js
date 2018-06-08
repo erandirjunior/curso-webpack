@@ -1,4 +1,4 @@
-import { abc } from './myfile.js';
+//import { abc } from './myfile.js';
 import jslogo from './javascript.png';
 import css from './style.css';
 
@@ -10,8 +10,18 @@ const numberElement = document.querySelector('#my-number');
 imgElement.setAttribute('src', jslogo);
 //imgElement.classList.add(css['img-border']);
 
-numberElement.addEventListener('click', function() {
+numberElement.addEventListener('click', async function() {
 	console.log(this.value);
+
+	// promise
+	/*import('./myfile.js')
+	.then(module => {
+		const { abc } = module;
+		abc();
+	});*/
+
+	// async/await
+	const { abc } = await import('./myfile.js');
 	abc();
 });
 
