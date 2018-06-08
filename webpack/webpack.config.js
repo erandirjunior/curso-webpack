@@ -19,6 +19,9 @@ module.exports = {
 		path: PATHS.build
 	},
 	devtool: 'inline-source-map',
+	devServer: {
+		contentBase: PATHS.build
+	},
 	module: {
 		rules: [
 			{

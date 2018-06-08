@@ -12,11 +12,13 @@
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1"
+    "url-loader": "^1.0.1",
+    "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js --watch"
+    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
+    "start": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.config.js"
   },
   "repository": {
     "type": "git",
