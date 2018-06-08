@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MyPlugin = require('./myplugin.js');
 
 const PATHS = {
 	src: path.join(__dirname, '../src'),
@@ -50,6 +51,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'TW WebPack',
 			template: `${PATHS.src}/index.html`
+		}),
+		new MyPlugin({
+			path: PATHS.build,
+			message: 'HELLO !!!'
 		})
 	]
 }
