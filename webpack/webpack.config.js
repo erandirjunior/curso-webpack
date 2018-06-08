@@ -11,16 +11,17 @@ const PATHS = {
 module.exports = {
 	entry: {
 		bundle: `${PATHS.src}/index.js`,
-		app: `${PATHS.src}/index2.js`
+		//app: `${PATHS.src}/index2.js`
 	},
 	output: {
-		filename: '[name].[chunkhash:5].js',
+		filename: '[name].[hash:5].js',
 		//filename: '[name].js',
 		path: PATHS.build
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: PATHS.build
+		contentBase: PATHS.build,
+		hot: true
 	},
 	module: {
 		rules: [
@@ -57,6 +58,8 @@ module.exports = {
 			title: 'TW WebPack',
 			template: `${PATHS.src}/index.html`
 		}),
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 		new MyPlugin({
 			path: PATHS.build,
 			message: 'HELLO !!!'
