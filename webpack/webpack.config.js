@@ -18,6 +18,7 @@ module.exports = {
 		//filename: '[name].js',
 		path: PATHS.build
 	},
+	devtool: 'inline-source-map',
 	module: {
 		rules: [
 			{
@@ -29,7 +30,8 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							modules: true
+							modules: true,
+							sourceMap: true
 						}
 					}
 				]
