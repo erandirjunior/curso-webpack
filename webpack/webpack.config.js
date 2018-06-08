@@ -8,7 +8,7 @@ const PATHS = {
 	build: path.resolve(__dirname, '../dist')
 }
 
-module.exports = {
+const commonConfig = {
 	entry: {
 		bundle: `${PATHS.src}/index.js`,
 		//app: `${PATHS.src}/index2.js`
@@ -65,4 +65,9 @@ module.exports = {
 			message: 'HELLO !!!'
 		})
 	]
+};
+
+module.exports = (env) => {
+	console.log('env', env);
+	return commonConfig;
 }

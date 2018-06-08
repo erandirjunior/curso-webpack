@@ -17,8 +17,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js",
-    "start": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.config.js"
+    "build": "./node_modules/.bin/webpack --config ./webpack/webpack.config.js --env production",
+    "start": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.config.js --env development"
   },
   "repository": {
     "type": "git",
