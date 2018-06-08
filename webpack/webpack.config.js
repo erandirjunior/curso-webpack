@@ -1,73 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MyPlugin = require('./myplugin.js');
-
-const PATHS = {
-	src: path.join(__dirname, '../src'),
-	build: path.resolve(__dirname, '../dist')
-}
-
-const commonConfig = {
-	entry: {
-		bundle: `${PATHS.src}/index.js`,
-		//app: `${PATHS.src}/index2.js`
-	},
-	output: {
-		filename: '[name].[hash:5].js',
-		//filename: '[name].js',
-		path: PATHS.build
-	},
-	devtool: 'inline-source-map',
-	devServer: {
-		contentBase: PATHS.build,
-		hot: true
-	},
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				use: [
-					{
-						loader: 'style-loader'
-					},
-					{
-						loader: 'css-loader',
-						options: {
-							modules: true,
-							sourceMap: true
-						}
-					}
-				]
-			},
-			{
-				test: /\.(png|jpg|svg)$/,
-				use: {
-					loader: 'url-loader',
-					options: {
-				        /*minimize: true,
-				        removeComments: false,
-				        collapseWhitespace: false*/
-				    }
-				}
-			}
-		]
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: 'TW WebPack',
-			template: `${PATHS.src}/index.html`
-		}),
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new MyPlugin({
-			path: PATHS.build,
-			message: 'HELLO !!!'
-		})
-	]
-};
+const merge = require('webpack-merge');
+const { commonConfig } = require('./webpack.common.js');
+const devConfig = require('./webpack.dev.js');
+const prodConfig = require('./webpack.prod.js');
 
 module.exports = (env) => {
 	console.log('env', env);
-	return commonConfig;
+	if (env === 'development') {
+		return merge([commonConfig, devConfig]);
+	}
+
+	return merge(commonConfig, prodConfig);
 }
