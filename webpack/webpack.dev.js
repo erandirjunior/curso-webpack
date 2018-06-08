@@ -11,7 +11,7 @@ const devConfig = {
 	module: {
 		rules: [
 			{
-				test: /\.css$/,
+				test: /\.scss$/,
 				use: [
 					{
 						loader: 'style-loader'
@@ -22,6 +22,9 @@ const devConfig = {
 							modules: true,
 							sourceMap: true
 						}
+					},
+					{
+						loader: 'sass-loader'
 					}
 				]
 			}

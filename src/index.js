@@ -1,6 +1,6 @@
 import { abc } from './myfile.js';
 import jslogo from './javascript.png';
-import css from './style.css';
+import css from './style.scss';
 
 console.log(css);
 
@@ -16,7 +16,7 @@ class MyClass {
 const x = new MyClass();
 
 imgElement.setAttribute('src', jslogo);
-//imgElement.classList.add(css['img-border']);
+imgElement.classList.add(css['img-border']);
 
 numberElement.addEventListener('click', async function() {
 	console.log(this.value);
